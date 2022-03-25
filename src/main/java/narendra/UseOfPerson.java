@@ -1,3 +1,5 @@
+package narendra;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,7 +10,7 @@ public class UseOfPerson {
         System.out.println(names);
 
         List<Person> people = names.stream()    //Stream<String>
-                .map(name ->new Person(name))   //Stream<Person> map is not java key value pair map its to map
+                .map(name ->new Person(name))   //Stream<narendra.Person> map is not java key value pair map its to map
                 .collect(Collectors.toList());  //Coverts
 
         System.out.println(people);
@@ -16,7 +18,7 @@ public class UseOfPerson {
         //to use all the core of computer parallel
         List<Person> peopleAllCore = names.stream()    //Stream<String>
                 .parallel()
-                .map(Person::new)   //Stream<Person> map is not java key value pair map its to map
+                .map(Person::new)   //Stream<narendra.Person> map is not java key value pair map its to map
                 .collect(Collectors.toList());  //Coverts
         System.out.println(peopleAllCore);
 
