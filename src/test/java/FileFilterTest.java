@@ -14,7 +14,7 @@ public class FileFilterTest {
             System.out.println(file.getName());
 
         }
-        Assert.assertEquals(1,files.length);
+        Assert.assertEquals(1, files.length);
     }
 
     @Test
@@ -25,12 +25,12 @@ public class FileFilterTest {
                 return pathname.isDirectory();
             }
         });
-        if(directories!=null)
-        for (File file : directories) {
-            System.out.println(file.getName());
+        if (directories != null)
+            for (File file : directories) {
+                System.out.println(file.getName());
 
-        }
-        Assert.assertEquals(1,directories.length);
+            }
+        Assert.assertEquals(1, directories.length);
     }
 
 
@@ -38,11 +38,18 @@ public class FileFilterTest {
     @Test
     public void list_files_withExpressionFilters() {
         File[] directories = root.listFiles(pathname -> pathname.isDirectory());
-        if(directories!=null)
+        if (directories != null)
             for (File file : directories) {
                 System.out.println(file.getName());
 
             }
-        Assert.assertEquals(1,directories.length);
+        Assert.assertEquals(1, directories.length);
+    }
+
+    @Test
+    public void list_files_withFileNameFilters() {
+        File[] javaSourceFiles = root.listFiles((dir, name) -> name.endsWith(".java"));
+        if (javaSourceFiles != null)
+            Assert.assertEquals(1, javaSourceFiles.length);
     }
 }
