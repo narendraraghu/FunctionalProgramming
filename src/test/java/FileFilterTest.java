@@ -14,7 +14,7 @@ public class FileFilterTest {
             System.out.println(file.getName());
 
         }
-        Assert.assertEquals(1, files.length);
+        Assert.assertEquals(4, files.length);
     }
 
     @Test
@@ -50,6 +50,6 @@ public class FileFilterTest {
     public void list_files_withFileNameFilters() {
         File[] javaSourceFiles = root.listFiles((dir, name) -> name.endsWith(".java"));
         if (javaSourceFiles != null)
-            Assert.assertEquals(1, javaSourceFiles.length);
+            Assert.assertEquals(3, javaSourceFiles.length);
     }
 }
